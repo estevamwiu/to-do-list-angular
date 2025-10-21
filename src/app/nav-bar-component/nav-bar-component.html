@@ -1,6 +1,12 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <img src="check.png" width="50" height="28">
+    <a class="navbar-item">
+      <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="45" fill="#00d1b2" /> 
+        <path d="M30 50 L45 65 L70 35" stroke="white" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="ml-2 has-text-weight-semibold">To-Do List</span>
+    </a>
     
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -17,7 +23,7 @@
       </a>
 
       <a class="navbar-item" routerLink="/my-tasks">
-         Nova Tarefa
+         Minhas Tarefas
       </a>
 
         <a class="navbar-item">
@@ -40,7 +46,7 @@
           <a class="button is-primary">
             <strong>Entrar</strong>
           </a>
-          <a class="button is-light">
+          <a class="button is-black">
             Criar Conta
           </a>
         </div>
