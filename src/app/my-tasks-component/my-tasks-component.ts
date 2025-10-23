@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Tasks } from '../forms/tasks';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-my-tasks-component',
@@ -8,4 +10,17 @@ import { Component } from '@angular/core';
 })
 export class MyTasksComponent {
 
+    task: Tasks[] = [];
+    formGroupTasks: FormGroup;
+
+    constructor (private formBuilder: FormBuilder) {
+        this.formGroupTasks = formBuilder.group({
+            title: ['']
+        });
+    }
+
+ save() {
+    this.task.push(this.formGroupTasks.value);
+    this.formGroupTasks.reset();
+  }
 }

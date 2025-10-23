@@ -5,6 +5,7 @@ import { MyTasksComponent } from './my-tasks-component/my-tasks-component';
 
 const routes: Routes = 
 [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'home', component: HomeComponent},
   {path: 'my-tasks', component: MyTasksComponent}
 ];

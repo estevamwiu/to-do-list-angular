@@ -1,0 +1,28 @@
+<div class="container mt-6">
+
+  <h1 class="title is-1 has-text-centered">Just do it.</h1>
+
+  <form [formGroup]="formGroupTasks" (ngSubmit)="save()" class="mb-5">
+    <div class="field has-addons is-justify-content-center">
+      <div class="control is-expanded">
+        <input
+          formControlName="title" type="text" class="input is-primary" id="inputTitle" placeholder="Adicione sua tarefa"/>
+      </div>
+      <div class="control">
+        <button class="button is-primary" type="submit">Add</button>
+      </div>
+    </div>
+  </form>
+
+  <div *ngIf="task.length > 0; else noTasks">
+    <ul>
+      <li *ngFor="let task of task" class="box has-background-light mb-2">
+        {{ task.title }}
+      </li>
+    </ul>
+  </div>
+
+  <ng-template #noTasks>
+    <p class="has-text-centered has-text-grey">Nenhuma tarefa adicionada ainda.</p>
+  </ng-template>
+</div>
