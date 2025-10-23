@@ -1,26 +1,61 @@
-import { Component } from '@angular/core';
-import { Tasks } from '../forms/tasks';
+import { Component, OnInit } from '@angular/core';
+import { Tasks } from '../export-forms/tasks';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { TaskService } from '../task-service';
 
 @Component({
   selector: 'app-my-tasks-component',
   standalone: false,
   templateUrl: './my-tasks-component.html',
-  styleUrl: './my-tasks-component.css'
+  styleUrls: ['./my-tasks-component.css']
 })
-export class MyTasksComponent {
 
-    task: Tasks[] = [];
-    formGroupTasks: FormGroup;
+export class MyTasksComponent implements OnInit {
 
-    constructor (private formBuilder: FormBuilder) {
-        this.formGroupTasks = formBuilder.group({
-            title: ['']
-        });
-    }
+  currentTime: string = '';
+  task: Tasks[] = [];
+  formGroupTasks: FormGroup;
 
- save() {
-    this.task.push(this.formGroupTasks.value);
-    this.formGroupTasks.reset();
+  constructor (private formBuilder: FormBuilder, private service: TaskService) {
+    this.formGroupTasks = this.formBuilder.group({
+      id : [''],
+      title: ['']
+    });
+  }
+
+  ngOnInit(): void {
+
+    this.updateTime();
+    setInterval(() => this.updateTime(), 1000);
+
+    this.service.getAllTasks().subscribe({
+      next: json => this.task = json
+    });
+  }
+
+  updateTime() {
+    const now = new Date();
+    this.currentTime = now.toLocaleString('pt-BR', 
+    {
+      dateStyle: 'short',
+      timeStyle: 'medium'
+    });
+  }
+
+  save() {
+       this.service.save(this.formGroupTasks.value).subscribe(
+      {
+        next: json => {
+                        this.task.push(json);
+                        this.formGroupTasks.reset();
+                      }
+      }
+    )
+}
+
+  delete (task: Tasks) {
+    this.service.delete(task).subscribe({
+      next: () => this.task = this.task.filter(t => t.id != task.id)
+    })
   }
 }

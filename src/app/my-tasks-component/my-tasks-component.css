@@ -5,3 +5,12 @@
     align-items: center;
     justify-content: center;
 }
+
+.clock {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}

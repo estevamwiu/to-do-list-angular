@@ -1,28 +1,35 @@
-<div class="container mt-6">
-
-  <h1 class="title is-1 has-text-centered">Just do it.</h1>
+<div class="container mt-6 has-text-centered" style="margin-top: 120px;">
+  
+  <h1 class="title is-1" style="font-size: 3.8rem;">Just do it.</h1> 
 
   <form [formGroup]="formGroupTasks" (ngSubmit)="save()" class="mb-5">
     <div class="field has-addons is-justify-content-center">
       <div class="control is-expanded">
         <input
-          formControlName="title" type="text" class="input is-primary" id="inputTitle" placeholder="Adicione sua tarefa"/>
+          formControlName="title" type="text" class="input is-primary" id="inputTitle" placeholder="Adicione sua tarefa" style="height: 3rem; font-size: 1.0rem;"/>
       </div>
       <div class="control">
-        <button class="button is-primary" type="submit">Add</button>
+        <button class="button is-primary" type="submit" style="height: 3rem; font-size: 1.1rem;">
+          Adicionar
+        </button>
       </div>
     </div>
   </form>
 
+          <div class="clock" style = "margin-top: -10px;">
+          {{ currentTime }}
+          </div>
+
   <div *ngIf="task.length > 0; else noTasks">
     <ul>
-      <li *ngFor="let task of task" class="box has-background-light mb-2">
-        {{ task.title }}
+      <li *ngFor="let t of task" class="box has-background-light mb-2" style="margin-top: 10px;">
+        {{ t.title }}
+        <button class="delete is-medium" aria-label="Excluir tarefa" (click)="delete(t)"></button>
       </li>
     </ul>
   </div>
 
   <ng-template #noTasks>
-    <p class="has-text-centered has-text-grey">Nenhuma tarefa adicionada ainda.</p>
+    <p class="has-text-centered has-text-grey" style = "margin-top: 10px;">Nenhuma tarefa adicionada ainda.</p>
   </ng-template>
 </div>

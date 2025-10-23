@@ -8,6 +8,7 @@ import { FooterComponent } from './footer-component/footer-component';
 import { NavBarComponent } from './nav-bar-component/nav-bar-component';
 import { MyTasksComponent } from './my-tasks-component/my-tasks-component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(),
+    provideHttpClient()
   ],
   bootstrap: [App]
 })
