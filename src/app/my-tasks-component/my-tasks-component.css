@@ -14,3 +14,57 @@
     align-items: center;
     justify-content: center;
 }
+
+.delete-button {
+  width: 32px;
+  height: 32px;
+  background-color: #888;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 8px;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.delete-button:hover {
+  background-color: #666;
+}
+
+.delete-button svg {
+  width: 12px;
+  height: 12px;
+  fill: white;
+  pointer-events: none;
+}
+
+button.edit.is-medium {
+  width: 32px;
+  height: 32px;
+  background-color: #888;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+button.edit.is-medium:hover {
+  background-color: #666;
+}
+
+button.edit.is-medium svg {
+  width: 12px;
+  height: 12px;
+  fill: white;
+  pointer-events: none;
+}

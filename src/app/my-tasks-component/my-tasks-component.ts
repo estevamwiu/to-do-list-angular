@@ -15,6 +15,7 @@ export class MyTasksComponent implements OnInit {
   currentTime: string = '';
   task: Tasks[] = [];
   formGroupTasks: FormGroup;
+  isEditing: boolean = false;
 
   constructor (private formBuilder: FormBuilder, private service: TaskService) {
     this.formGroupTasks = this.formBuilder.group({
@@ -58,4 +59,28 @@ export class MyTasksComponent implements OnInit {
       next: () => this.task = this.task.filter(t => t.id != task.id)
     })
   }
+
+  OnClickUpdate (task: Tasks) {
+    this.formGroupTasks.setValue(task);
+    this.isEditing = true;
+  }
+
+    update() {
+     this.service.update(this.formGroupTasks.value).subscribe(
+        {
+          next: json => {
+            let index = this.task.findIndex(t => t.id == json.id);
+            this.task[index] = json;
+            this.isEditing = false;
+            this.formGroupTasks.reset();
+          }
+        }
+      )
+  }
+
+  cancelEdit() {
+    this.isEditing = false;
+    this.formGroupTasks.reset();
+  }
+
 }
