@@ -26,4 +26,22 @@ export class TaskService {
   update(task: Tasks): Observable<Tasks>{
     return this.http.put<Tasks>(`${this.apiUrl}/${task.id}`, task);
 }
+
+  markAsCompleted (task: Tasks): Observable<Tasks> {
+    const updatedTask = { ...task, completed: true, completedAt: new Date ()};
+    return this.http.put<Tasks>(`${this.apiUrl}/${task.id}`, updatedTask);
+  }
+
+  markAsPending(task: Tasks): Observable<Tasks> {
+    const updatedTask = { ...task, completed: false, completedAt: null};
+    return this.http.put<Tasks>(`${this.apiUrl}/${task.id}`, updatedTask);
+  }
+
+  getCompletedTasks(): Observable<Tasks[]> {
+    return this.http.get<Tasks[]>(`${this.apiUrl}?completed=true`);
+  }
+
+  getPendingTasks(): Observable<Tasks[]> {
+    return this.http.get<Tasks[]>(`${this.apiUrl}?completed=false`);
+  }
 }

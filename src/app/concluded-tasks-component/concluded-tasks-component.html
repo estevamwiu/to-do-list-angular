@@ -1,0 +1,53 @@
+<div class="container mt-6" style="margin-top: 120px;">
+
+  <h1 class="title is-1 has-text-centered">Tarefas Concluídas</h1>
+
+  <div class="has-text-centered mb-5">
+    <a routerLink="/my-tasks" class="button is-primary">
+      ← Voltar para Tarefas
+    </a>
+  </div>
+
+  <div *ngIf="completedTasks.length > 0; else noCompletedTasks">
+    <div class="table-container">
+      <table class="table is-fullwidth is-striped">
+        <thead>
+          <tr>
+            <th>Tarefa</th>
+            <th>Concluída em</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let task of completedTasks">
+            <td style="text-decoration: line-through; opacity: 0.7;">
+              {{ task.title }}
+            </td>
+            <td>
+              <small class="has-text-grey">
+                {{ formatDate(task.completedAt || '') }}
+              </small>
+            </td>
+            <td>
+              <div class="buttons are-small">
+                <button class="button is-warning" (click)="markAsPending(task)" title="Marcar como pendente">
+                  ↶ Reabrir
+                </button>
+                <button class="button is-danger" (click)="delete(task)" title="Excluir tarefa">
+                  🗑️ Excluir
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <ng-template #noCompletedTasks>
+    <div class="has-text-centered has-text-grey" style="margin-top: 50px;">
+      <p class="is-size-4">Nenhuma tarefa concluída ainda.</p>
+      <p class="is-size-6">Complete algumas tarefas para vê-las aqui!</p>
+    </div>
+  </ng-template>
+</div>

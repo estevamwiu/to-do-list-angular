@@ -9,6 +9,7 @@ import { NavBarComponent } from './nav-bar-component/nav-bar-component';
 import { MyTasksComponent } from './my-tasks-component/my-tasks-component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
+import { ConcludedTasksComponent } from './concluded-tasks-component/concluded-tasks-component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { provideHttpClient } from '@angular/common/http';
     HomeComponent,
     FooterComponent,
     NavBarComponent,
-    MyTasksComponent
+    MyTasksComponent,
+    ConcludedTasksComponent
   ],
   imports: [
     BrowserModule,
