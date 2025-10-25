@@ -10,6 +10,7 @@ import { MyTasksComponent } from './my-tasks-component/my-tasks-component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
 import { ConcludedTasksComponent } from './concluded-tasks-component/concluded-tasks-component';
+import { AboutComponent } from './about-component/about-component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ConcludedTasksComponent } from './concluded-tasks-component/concluded-t
     FooterComponent,
     NavBarComponent,
     MyTasksComponent,
-    ConcludedTasksComponent
+    ConcludedTasksComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

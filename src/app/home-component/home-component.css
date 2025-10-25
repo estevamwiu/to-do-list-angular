@@ -15,7 +15,7 @@
 .home-hero-image {
   display: block;
   width: 100%;
-  height: 80vh;         /* imagem grande, quase até o footer */
+  height: 80vh;
   max-height: 80vh;
   object-fit: cover;   
   border-radius: 8px;
