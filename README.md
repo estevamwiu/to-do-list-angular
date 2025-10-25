@@ -1,59 +1,62 @@
-# ToDoList
+📝 To-Do List — Just do it.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.4.
+Um aplicativo simples e intuitivo de gerenciamento de tarefas, desenvolvido com Angular, Bulma e JSON Server, com o objetivo de ajudar o usuário a organizar suas atividades diárias de forma prática e eficiente.
 
-## Development server
+🚀 Funcionalidades
 
-To start a local development server, run:
+➕ Adicionar novas tarefas
+📋 Listar tarefas cadastradas
+✅ Marcar tarefas como concluídas
+🗂️ Página exclusiva para tarefas concluídas
+🧭 Navegação entre páginas (Home, Concluídas, Sobre)
+💾 Integração com JSON Server para simular persistência de dados
+🎨 Interface moderna e responsiva com Bulma
 
-```bash
+🧠 Tecnologias Utilizadas
+
+• Angular	Framework: Principal para criação dos componentes e lógica da aplicação
+• TypeScript: Linguagem utilizada para tipagem e organização do código
+• HTML5 / CSS3:	Estrutura e estilização da aplicação
+• Bulma CSS Framework:	Framework CSS utilizado para o layout responsivo
+• JSON Server: API fake utilizada para armazenar as tarefas
+
+⚙️ Como Executar o Projeto
+
+1️⃣ Clonar o repositório:
+git clone https://github.com/estevamwiu/to-do-list-angular.git
+
+2️⃣ Instalar as dependências:
+cd to-do-list-angular
+npm install
+
+3️⃣ Iniciar o servidor JSON (em outro terminal):
+npx json-server --watch db.json --port 3000
+
+4️⃣ Rodar o projeto Angular:
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+5️⃣ Acessar no navegador:
+http://localhost:4200/
 
-## Code scaffolding
+📁 Estrutura do Projeto
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+📂 to-do-list-angular
+ ┣ 📂 src
+ ┃ ┣ 📂 app
+ ┃ ┃ ┣ 📂 components
+ ┃ ┃ ┣ 📂 pages
+ ┃ ┃ ┣ 📂 services
+ ┃ ┃ ┗ app.module.ts
+ ┃ ┣ 📂 assets
+ ┃ ┗ index.html
+ ┣ db.json
+ ┣ angular.json
+ ┣ package.json
+ ┗ README.md
 
-```bash
-ng generate component component-name
-```
+🧩 Melhorias Futuras
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+🔔 Sistema de notificação de tarefas pendentes
+📅 Organização por data e prioridade
+💡 Login e autenticação de usuários
+☁️ Integração com backend real (Firebase ou Node.js)
